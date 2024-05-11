@@ -1,0 +1,33 @@
+﻿@model Shop.Models.CustomShop
+<form class="row g-3 needs-validation" method="post" novalidate>
+  <div class="col-md-4">
+    <label for="validationCustom01" class="form-label">Full Name</label>
+    <input asp-for="Cproduct.ProductName" type="text" class="form-control" id="validationCustom01" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+    <div class="col-md-3">
+        <label for="validationCustom04" class="form-label">Category</label>
+        <select asp-for="Cproduct.PcategoryId" class="form-select" id="validationCustom04" required>
+            <option selected disabled value="">Choose...</option>
+            @foreach (var temp in Model.categorylist)
+            {
+                <option value="@temp.CategoryId">@temp.CategoryName</option>
+            }
+        </select>
+        <div class="invalid-feedback">
+            Please select a valid state.
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="validationCustom05" class="form-label">Quantity</label>
+        <input asp-for="Cproduct.ProductQuantity" type="number" class="form-control" id="validationCustom05" required>
+        <div class="invalid-feedback">
+            Please provide a valid zip.
+        </div>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Submit form</button>
+    </div>
+</form>
